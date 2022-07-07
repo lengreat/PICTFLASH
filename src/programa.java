@@ -61,7 +61,7 @@ public class programa extends JFrame {
     private int aleatorio;
     private boolean bandStart = true;
     private boolean banTecleo = true;
-    private boolean bandReset=false;
+    private boolean bandReset = false;
     private boolean inicioEnterPalabra = false;
 
     private JButton reset;
@@ -164,7 +164,7 @@ public class programa extends JFrame {
 
         opciones = new JComboBox<Integer>();
         opciones.setFont(font1);
-        for (int a = 1; a <= 26; a++) {
+        for (int a = 1; a <= 34; a++) {
             opciones.addItem(a);
         }
         opciones.setBounds(770, 20, 60, 50);
@@ -294,10 +294,10 @@ public class programa extends JFrame {
         stop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 if (bandStop) {
-                    if (!bandReset){
+                    if (!bandReset) {
 
                         cronometro.resume();
-                        bandReset=false;
+                        bandReset = false;
                     }
                     push.setEnabled(true);
                     stop.setBackground(Color.LIGHT_GRAY);
@@ -357,40 +357,40 @@ public class programa extends JFrame {
         permisivoDesorden = 0;
         band = 0;
         banTecleo = true;
-        bandReset=true;
-        //bandStop=!bandStop;
+        bandReset = true;
+        // bandStop=!bandStop;
         if (!tecleo.isSelected()) {
             push.setEnabled(true);
             push.setEditable(true);
             push.setText("");
             push.requestFocus();
-            //push.setEditable(false);
+            // push.setEditable(false);
         } else {
             tecleoPalabra.setEditable(true);
             tecleoPalabra.setEnabled(true);
             tecleoPalabra.requestFocus();
         }
         if (tecleo.isSelected())
-        mensajeEnter.setText("-- ESCRIBA  --");
+            mensajeEnter.setText("-- ESCRIBA  --");
         else
-        mensajeEnter.setText("--- PRESIONE ENTER ----");
+            mensajeEnter.setText("--- PRESIONE ENTER ----");
         if (!banTecleo)// si el restar viene del Tecleo comboboz
-        mensajeEnter.setVisible(false);
+            mensajeEnter.setVisible(false);
         else
-        mensajeEnter.setVisible(true);
+            mensajeEnter.setVisible(true);
         if ((!bandStart) & (banTecleo)) // ppara q no cierre un hilo q nunca se a abierto
-        cronometro.interrupt();//para q no cierre el hilo al dar click al radioboton y tampoco al dar start
-        //stop.doClick();
+            cronometro.interrupt();// para q no cierre el hilo al dar click al radioboton y tampoco al dar start
+        // stop.doClick();
         System.out.println(bandStart);
         System.out.println(banTecleo);
-        }   
+    }
 
     private void eventosPushTecleo() {
         tecleoPalabra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 String enterIngresado = tecleoPalabra.getText();
                 if (tecleo.isSelected() & enterIngresado.equals("PRESIONE ENTER")) {
-                    //stop.setEnabled(true);
+                    // stop.setEnabled(true);
                     titulo.setText(titular);
                     if (VentanaCronometroinicia) {
                         cronometro = new Cronometro(showCronometer);
@@ -410,7 +410,7 @@ public class programa extends JFrame {
                         mostrarArregloAleatorios();
                         permisivoDesorden++;
                     }
-                    //MAX = 4;
+                    // MAX = 4;
 
                     PantallaImagen.setIcon(imagen[arregloAleatorios[contadorEnters] - 1]);
                     spanish.setText("----------");
@@ -423,9 +423,9 @@ public class programa extends JFrame {
                 }
                 if (enterIngresado.equals(valorCeldaIngles[arregloAleatorios[contadorEnters] - 1])
                         || (enterIngresado.equals("paso"))) {
-                            if (enterIngresado.equals("paso"))
-                               titulo.setText(valorCeldaIngles[arregloAleatorios[contadorEnters] - 1]);
-                
+                    if (enterIngresado.equals("paso"))
+                        titulo.setText(valorCeldaIngles[arregloAleatorios[contadorEnters] - 1]);
+
                     tecleoPalabra.setText("PRESIONE ENTER");
                     // tecleoPalabra.requestFocus();
                     tecleoPalabra.setEditable(false);
@@ -437,7 +437,7 @@ public class programa extends JFrame {
                     System.out.println(contadorEnters);
                 }
                 if (contadorEnters == MAX || enterIngresado.equals("fin")) {
-                    if (enterIngresado.equals("fin")){
+                    if (enterIngresado.equals("fin")) {
                         tecleoPalabra.setText("PRESIONE ENTER");
                         tecleoPalabra.setEditable(false);
                     }
@@ -452,8 +452,8 @@ public class programa extends JFrame {
                     paradaTrue = true;
                     start.setEnabled(true);
                     opciones.setEnabled(true);
-                    //mix.setEnabled(true);
-                    //mixText.setEnabled(true);
+                    // mix.setEnabled(true);
+                    // mixText.setEnabled(true);
                     tecleo.setEnabled(true);
                 }
 
@@ -475,7 +475,7 @@ public class programa extends JFrame {
                         band++;// utilizado para dos enter
                         // enterIngresado = push.getText();
                         if (permisivoDesorden == 0) {// Al primer enter se desordena
-                            //stop.setEnabled(true);
+                            // stop.setEnabled(true);
                             modulo = opciones.getSelectedIndex() + 1;
                             opcionesModuloIngles();
                             llenadoNombresImagenes();// Arreglo de enlace a imagenes
@@ -512,8 +512,8 @@ public class programa extends JFrame {
                             paradaTrue = true;
                             start.setEnabled(true);
                             opciones.setEnabled(true);
-                            //mix.setEnabled(true);
-                            //mixText.setEnabled(true);
+                            // mix.setEnabled(true);
+                            // mixText.setEnabled(true);
                             tecleo.setEnabled(true);
                             stop.setEnabled(false);
                         }
@@ -870,6 +870,70 @@ public class programa extends JFrame {
                 pathImagenes = "imagenesSustantives1";
                 MAX = 31;// SE CAMBIA RESPECTO A LA CANTIDAD DE IMAGENES sin importar el tamanio del
                          // excel
+                titular = "Sustantivos";
+                break;
+            case 28:
+                ruta = "SpanishEnglish-VERBS16.xlsx";// CAMBIAR RUTA, INCREMENTO, Y MAX
+                                                     // ******************************
+                INCREMENTO = 0;// tamanio de filas quitadas
+                pathImagenes = "imagenesVerbs16";
+                MAX = 32;// SE CAMBIA RESPECTO A LA CANTIDAD DE IMAGENES sin importar el tamanio del
+                         // excel
+                titular = "Verbos";
+                break;
+            case 29:
+                ruta = "SpanishEnglish-VERBS17.xlsx";// CAMBIAR RUTA, INCREMENTO, Y MAX
+                                                     // ******************************
+                INCREMENTO = 0;// tamanio de filas quitadas
+                pathImagenes = "imagenesVerbs17";
+                MAX = 35;// SE CAMBIA RESPECTO A LA CANTIDAD DE IMAGENES sin importar el tamanio del
+                         // excel
+                titular = "Verbos";
+                break;
+            case 30:
+                ruta = "SpanishEnglish-VERBS18.xlsx";// CAMBIAR RUTA, INCREMENTO, Y MAX
+                                                     // ******************************
+                INCREMENTO = 0;// tamanio de filas quitadas
+                pathImagenes = "imagenesVerbs18";
+                MAX = 28;// SE CAMBIA RESPECTO A LA CANTIDAD DE IMAGENES sin importar el tamanio del
+                         // excel
+                titular = "Verbos";
+                break;
+            case 31:
+                ruta = "SpanishEnglish-VERBS19.xlsx";// CAMBIAR RUTA, INCREMENTO, Y MAX
+                                                     // ******************************
+                INCREMENTO = 0;// tamanio de filas quitadas
+                pathImagenes = "imagenesVerbs19";
+                MAX = 24;// SE CAMBIA RESPECTO A LA CANTIDAD DE IMAGENES sin importar el tamanio del
+                         // excel
+                titular = "Verbos";
+                break;
+            case 32:
+                ruta = "SpanishEnglish-VERBS20.xlsx";// CAMBIAR RUTA, INCREMENTO, Y MAX
+                                                     // ******************************
+                INCREMENTO = 0;// tamanio de filas quitadas
+                pathImagenes = "imagenesVerbs20";
+                MAX = 26;// SE CAMBIA RESPECTO A LA CANTIDAD DE IMAGENES sin importar el tamanio del
+                         // excel
+                titular = "Verbos";
+                break;
+            case 33:
+                ruta = "SpanishEnglish-SUSTANTIVESCONCRETOS1.xlsx";// CAMBIAR RUTA, INCREMENTO, Y MAX
+                // ******************************
+                INCREMENTO = 0;// tamanio de filas quitadas
+                pathImagenes = "imagenesSustantivosAbstractos1";
+                MAX = 38;// SE CAMBIA RESPECTO A LA CANTIDAD DE IMAGENES sin importar el tamanio del
+                         // excel
+                titular = "Concretos";
+                break;
+            case 34:
+                ruta = "SpanishEnglish-SUSTANTIVESCONCRETOS2.xlsx";// CAMBIAR RUTA, INCREMENTO, Y MAX
+                // ******************************
+                INCREMENTO = 0;// tamanio de filas quitadas
+                pathImagenes = "imagenesSustantivosAbstractos2";
+                MAX = 32;// SE CAMBIA RESPECTO A LA CANTIDAD DE IMAGENES sin importar el tamanio del
+                         // excel
+                titular = "Concretos";
                 break;
 
             default:
