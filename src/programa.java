@@ -921,7 +921,7 @@ public class programa extends JFrame {
                 ruta = "SpanishEnglish-SUSTANTIVESCONCRETOS1.xlsx";// CAMBIAR RUTA, INCREMENTO, Y MAX
                 // ******************************
                 INCREMENTO = 0;// tamanio de filas quitadas
-                pathImagenes = "imagenesSustantivosAbstractos1";
+                pathImagenes = "imagenesSustantivosConcretos1";
                 MAX = 38;// SE CAMBIA RESPECTO A LA CANTIDAD DE IMAGENES sin importar el tamanio del
                          // excel
                 titular = "Concretos";
@@ -930,7 +930,7 @@ public class programa extends JFrame {
                 ruta = "SpanishEnglish-SUSTANTIVESCONCRETOS2.xlsx";// CAMBIAR RUTA, INCREMENTO, Y MAX
                 // ******************************
                 INCREMENTO = 0;// tamanio de filas quitadas
-                pathImagenes = "imagenesSustantivosAbstractos2";
+                pathImagenes = "imagenesSustantivosConcretos2";
                 MAX = 32;// SE CAMBIA RESPECTO A LA CANTIDAD DE IMAGENES sin importar el tamanio del
                          // excel
                 titular = "Concretos";
