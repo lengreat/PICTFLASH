@@ -164,7 +164,7 @@ public class programa extends JFrame {
 
         opciones = new JComboBox<Integer>();
         opciones.setFont(font1);
-        for (int a = 1; a <= 34; a++) {
+        for (int a = 1; a <= 35; a++) {
             opciones.addItem(a);
         }
         opciones.setBounds(770, 20, 60, 50);
@@ -931,6 +931,15 @@ public class programa extends JFrame {
                 // ******************************
                 INCREMENTO = 0;// tamanio de filas quitadas
                 pathImagenes = "imagenesSustantivosConcretos2";
+                MAX = 32;// SE CAMBIA RESPECTO A LA CANTIDAD DE IMAGENES sin importar el tamanio del
+                         // excel
+                titular = "Concretos";
+                break;
+            case 35:
+                ruta = "SpanishEnglish-SUSTANTIVESABSTRACTOS1.xlsx";// CAMBIAR RUTA, INCREMENTO, Y MAX
+                // ******************************
+                INCREMENTO = 0;// tamanio de filas quitadas
+                pathImagenes = "imagenesSustantivosAbstractos1";
                 MAX = 32;// SE CAMBIA RESPECTO A LA CANTIDAD DE IMAGENES sin importar el tamanio del
                          // excel
                 titular = "Concretos";
